@@ -6,7 +6,7 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>nl.promedico.demo</groupId>
-    <artifactId>springbootDemo2</artifactId>
+    <artifactId>springboot-demo</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <name>Spring Security - ${project.artifactId}</name>
 
