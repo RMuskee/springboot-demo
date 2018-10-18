@@ -10,8 +10,8 @@ The stuff this demo uses:
 - an in-memory-DB (H2) which can be used during development/testing
 - springboot security with 2 example-users
 - thymeleaf with 
--- the thymeleaf-security extension with some examples
--- the thymleaf-layout-dialect in order to reuse components
+  - the thymeleaf-security extension with some examples
+  - the thymleaf-layout-dialect in order to reuse components
 - webjars in order to manage javascript and css (including webjars-locate)
 - a bootstrap 4 responsive navbar
 - font awesome 5
