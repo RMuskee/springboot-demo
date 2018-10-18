@@ -4,7 +4,7 @@ While searching for a good starting point to create my first springboot applicat
 
 I merged logic from multiple demos into 1 demo which (for me) made into a good reference project.
 
-The stuff this demo uses:
+# summary of used technologies
 
 - springboot v2.0.5 
 - an in-memory-DB (H2) which can be used during development/testing
