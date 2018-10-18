@@ -1,6 +1,6 @@
 # springboot-demo
 
-While searching for a good starting point to create a springboot application, I noticed i liked and disliked parts of multiple demo-projects.
+While searching for a good starting point to create a springboot application, I noticed I liked and disliked parts of multiple demo-projects.
 
 I merged logic from multiple demos into 1 demo app which (for me) is a good reference.
 
@@ -13,5 +13,6 @@ The stuff this demo uses:
 -- the thymeleaf-security extension with some examples
 -- the thymleaf-layout-dialect in order to reuse components
 - webjars in order to manage javascript and css (including webjars-locate)
-- a bootstrap responsive navbar
+- a bootstrap 4 responsive navbar
+- font awesome 5
 - jquery
