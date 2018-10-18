@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<body>
+<th:block th:fragment="footer">
+    <footer class="fixed-bottom">
+        <div class="container">
+            <p>
+                <span sec:authorize="isAuthenticated()" style="display: inline-block;">
+                    debug-info: Roles: <span sec:authentication="principal.authorities"></span>
+                </span>
+            </p>
+        </div>
+    </footer>
+
+    <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js/}"></script>
+    <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</th:block>
+</body>
+</html>

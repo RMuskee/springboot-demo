@@ -1,0 +1,32 @@
+server:
+  port: 8080
+
+spring:
+  thymeleaf:
+    cache: false
+    check-template: true
+    check-template-location: true
+    enabled: true
+    encoding: UTF-8
+    mode: HTML
+    prefix: classpath:/templates/
+    suffix: .html
+  jpa:
+    generate-ddl: true
+    show-sql: true
+  h2:
+    console:
+      enabled: true
+      path: /admin/h2-console
+    datasource:
+      driver-class-name: org.h2.Driver
+      url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1
+      username: sa
+      password: sa
+
+logging:
+  level:
+    root: WARN
+    nl.promedico.demo.springboot: DEBUG
+    org.springframework.web: INFO
+    org.springframework.security: INFO

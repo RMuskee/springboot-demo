@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>Index</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <h1>Welcome <span sec:authentication="name"></span></h1>
+    <p>This is the home page</p>
+    <p sec:authorize="isAnonymous()">You can login with <b>user:user</b> or <b>admin:admin</b> to view restricted pages</p>
+</div>
+</body>
+</html>
