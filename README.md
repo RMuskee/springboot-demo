@@ -13,6 +13,6 @@ The stuff this demo uses:
   - the thymeleaf-security extension with some examples
   - the thymleaf-layout-dialect in order to reuse components
 - webjars in order to manage javascript and css (including webjars-locate)
-- a bootstrap 4 responsive navbar
-- font awesome 5
-- jquery
+  - a bootstrap 4 responsive navbar
+  - font awesome 5
+  - jquery
