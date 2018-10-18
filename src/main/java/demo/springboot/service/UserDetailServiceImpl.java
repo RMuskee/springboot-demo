@@ -36,9 +36,6 @@ public class UserDetailServiceImpl implements UserDetailsService {
                 .toArray(new String[curruser.getRoles().size()]);
         UserDetails user = new org.springframework.security.core.userdetails.User(username, curruser.getPasswordHash(), true,
                 true, true, true, AuthorityUtils.createAuthorityList(roles));
-
-        System.out.println("ROLE(S): " + roles);
-
         return user;
     }
     
