@@ -2,7 +2,7 @@
 
 While searching for a good starting point to create a springboot application, I noticed I liked and disliked parts of multiple demo-projects.
 
-I merged logic from multiple demos into 1 demo app which (for me) is a good reference.
+I merged logic from multiple demos into 1 demo which (for me) made into a good reference project.
 
 The stuff this demo uses:
 
