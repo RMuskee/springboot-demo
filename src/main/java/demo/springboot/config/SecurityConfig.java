@@ -14,7 +14,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
-@ComponentScan("nl.promedico.demo.springboot")
+@ComponentScan("demo.springboot")
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
