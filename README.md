@@ -1,4 +1,4 @@
-# springboot-demo
+# About this application
 
 While searching for a good starting point to create my first springboot application, I noticed I liked and disliked parts of multiple demo-projects.
 
