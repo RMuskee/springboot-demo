@@ -19,7 +19,7 @@ public class Application {
 
     @Bean
     public CommandLineRunner demo(UserRepository userRepository) {
-        return (args) -> {
+        return args -> {
             Set<Role> user1Roles = new HashSet<>();
             user1Roles.add(new Role("USER"));
             Set<Role> user2Roles = new HashSet<>();
