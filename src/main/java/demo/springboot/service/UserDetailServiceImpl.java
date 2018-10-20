@@ -11,10 +11,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.stream.Collectors;
 
-
-/**
- * This class is used by spring controller to authenticate and authorize user
- **/
 @Service
 public class UserDetailServiceImpl implements UserDetailsService {
 	private final UserRepository userRepository;

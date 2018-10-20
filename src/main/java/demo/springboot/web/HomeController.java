@@ -25,5 +25,4 @@ public class HomeController {
     public String accessDenied() {
         return "/error/access-denied";
     }
-
 }
