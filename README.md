@@ -4,6 +4,9 @@ While searching for a good starting point to create my first springboot applicat
 
 I merged logic from multiple demos into 1 demo which (for me) made into a good reference project.
 
+# Prerequisites
+JDK 8
+
 # summary of used technologies
 
 - springboot v2.0.5 
