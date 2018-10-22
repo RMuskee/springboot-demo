@@ -1,5 +1,6 @@
 package demo.springboot.service;
 
+import demo.springboot.model.Role;
 import demo.springboot.repository.UserRepository;
 import demo.springboot.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,17 +22,17 @@ public class UserDetailServiceImpl implements UserDetailsService {
 	}
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException
+    public UserDetails loadUserByUsername(String username)
     {   
     	User foundUser = userRepository.findByUsername(username);
 
     	if (foundUser != null) {
             String[] roles = foundUser.getRoles()
                     .stream()
-                    .map(role -> role.getRole())
+                    .map(Role::getRole)
                     .collect(Collectors.toSet())
                     .toArray(new String[foundUser.getRoles().size()]);
-            UserDetails user = new org.springframework.security.core.userdetails.User(
+            return new org.springframework.security.core.userdetails.User(
                     username,
                     foundUser.getPasswordHash(),
                     true,
@@ -39,7 +40,6 @@ public class UserDetailServiceImpl implements UserDetailsService {
                     true,
                     true,
                     AuthorityUtils.createAuthorityList(roles));
-            return user;
         } else {
     	    throw new UsernameNotFoundException(username);
         }
