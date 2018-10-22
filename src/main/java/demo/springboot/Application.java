@@ -7,6 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -18,16 +19,26 @@ public class Application {
     }
 
     @Bean
-    public CommandLineRunner demo(UserRepository userRepository) {
+    public CommandLineRunner fillUserData(UserRepository userRepository) {
         return args -> {
+            Role roleReader = new Role("READER");
+            Role roleEditor = new Role("EDITOR");
+            Role roleAdmin = new Role("ADMIN");
+
             Set<Role> user1Roles = new HashSet<>();
-            user1Roles.add(new Role("USER"));
+            user1Roles.add(roleReader);
             Set<Role> user2Roles = new HashSet<>();
-            user2Roles.add(new Role("ADMIN"));
-            User user1 = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", user1Roles);
-            User user2 = new User("admin", "$2a$08$bCCcGjB03eulCWt3CY0AZew2rVzXFyouUolL5dkL/pBgFkUH9O4J2", user2Roles);
-            userRepository.save(user1);
-            userRepository.save(user2);
+            user2Roles.add(roleEditor);
+            Set<Role> user3Roles = new HashSet<>();
+            user3Roles.add(roleAdmin);
+
+            BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+            User userReader = new User("reader", passwordEncoder.encode("reader"), user1Roles);
+            User userEditor = new User("editor", passwordEncoder.encode("editor"), user2Roles);
+            User userAdmin = new User("admin", passwordEncoder.encode("admin"), user3Roles);
+            userRepository.save(userReader);
+            userRepository.save(userEditor);
+            userRepository.save(userAdmin);
         };
     }
 }

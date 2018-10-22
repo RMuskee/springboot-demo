@@ -24,11 +24,6 @@
                             Home
                         </a>
                     </li>
-                    <li sec:authorize="hasAuthority('USER')">
-                        <a th:href="@{/user}">
-                            User
-                        </a>
-                    </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li sec:authorize="isAnonymous()">
@@ -44,11 +39,18 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="#">
+                                <a th:href="@{/user}">
                                     <span class="fa fa-key"></span>
-                                    Info
+                                    Personal page
                                 </a>
                             </li>
+                            <li sec:authorize="hasAuthority('ADMIN')">
+                                <a th:href="@{/admin}">
+                                    <span class="fa fa-cog"></span>
+                                    Admin
+                                </a>
+                            </li>
+                            <hr>
                             <li>
                                 <a th:href="@{/logout}">
                                     <span class="fa fa-sign-out-alt"></span>

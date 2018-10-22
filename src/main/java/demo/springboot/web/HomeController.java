@@ -11,14 +11,19 @@ public class HomeController {
         return "index";
     }
 
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
     @GetMapping("/user")
     public String userIndex() {
         return "/user/index";
     }
 
-    @GetMapping("/login")
-    public String login() {
-        return "login";
+    @GetMapping("/admin")
+    public String adminIndex() {
+        return "/admin/index";
     }
 
     @GetMapping("/access-denied")

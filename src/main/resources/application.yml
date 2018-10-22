@@ -13,7 +13,7 @@ spring:
     suffix: .html
   jpa:
     generate-ddl: true
-    show-sql: true
+    show-sql: false
   h2:
     console:
       enabled: true
