@@ -3,12 +3,12 @@
       xmlns:th="http://www.thymeleaf.org"
       layout:decorate="~{fragments/layout}">
 <head>
-    <title>Secured</title>
+    <title>Admin page</title>
 </head>
 <body>
 <div layout:fragment="content" th:remove="tag">
     <h1>This is the admin page!</h1>
-    <p><a href="/" th:href="@{/}">Back to home page</a></p>
+    <a th:href="@{/admin/h2-console}" target="_blank" class="btn btn-info" role="button"><i class="fa fa-database fa-pull-left"></i>Open H2-console in new tab</a>
 </div>
 </body>
 </html>

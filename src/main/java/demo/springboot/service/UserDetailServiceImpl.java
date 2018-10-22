@@ -32,6 +32,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
                     .map(Role::getRole)
                     .collect(Collectors.toSet())
                     .toArray(new String[foundUser.getRoles().size()]);
+
             return new org.springframework.security.core.userdetails.User(
                     username,
                     foundUser.getPasswordHash(),
