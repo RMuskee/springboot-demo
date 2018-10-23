@@ -21,7 +21,7 @@
                     <li class="active">
                         <a th:href="@{/}">
                             <span class="fa fa-home"></span>
-                            Home
+                            <span th:text="#{menu.home}"></span>
                         </a>
                     </li>
                 </ul>
@@ -29,7 +29,7 @@
                     <li sec:authorize="isAnonymous()">
                         <a th:href="@{/login}">
                             <span class="fa fa-key"></span>
-                            Log in
+                            <span th:text="#{menu.login}"></span>
                         </a>
                     </li>
                     <li sec:authorize="isAuthenticated()" class="dropdown">
@@ -41,19 +41,19 @@
                             <li>
                                 <a th:href="@{/user}">
                                     <span class="fa fa-key"></span>
-                                    Personal page
+                                    <span th:text="#{menu.user}"></span>
                                 </a>
                             </li>
                             <li sec:authorize="hasAuthority('ADMIN')">
                                 <a th:href="@{/admin}">
                                     <span class="fa fa-cog"></span>
-                                    Admin page
+                                    <span th:text="#{menu.admin}"></span>
                                 </a>
                             </li>
                             <li>
                                 <a th:href="@{/logout}">
                                     <span class="fa fa-sign-out-alt"></span>
-                                    Sign out
+                                    <span th:text="#{menu.logout}"></span>
                                 </a>
                             </li>
                         </ul>

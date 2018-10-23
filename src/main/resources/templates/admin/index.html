@@ -7,8 +7,10 @@
 </head>
 <body>
 <div layout:fragment="content" th:remove="tag">
-    <h1>This is the admin page!</h1>
-    <a th:href="@{/admin/h2-console}" target="_blank" class="btn btn-info" role="button"><i class="fa fa-database fa-pull-left"></i>Open H2-console in new tab</a>
+    <h1 th:text="#{admin.page.title}"></h1>
+    <a th:href="@{/admin/h2-console}" target="_blank" class="btn btn-info" role="button">
+        <i class="fa fa-database fa-pull-left"></i><span th:text="#{admin.button.h2.text}"></span>
+    </a>
 </div>
 </body>
 </html>

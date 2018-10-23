@@ -8,9 +8,8 @@
 </head>
 <body>
 <div layout:fragment="content" th:remove="tag">
-    <h1>Welcome <span sec:authentication="name"></span></h1>
-    <p>This is the home page</p>
-    <p sec:authorize="isAnonymous()">You can login with <b>reader:reader</b>, <b>editor:editor</b> or <b>admin:admin</b> to view restricted pages</p>
+    <h1 th:text="#{welcome.page.title}"></h1>
+    <p sec:authorize="isAnonymous()" th:text="#{welcome.page.message}"></p>
 </div>
 </body>
 </html>

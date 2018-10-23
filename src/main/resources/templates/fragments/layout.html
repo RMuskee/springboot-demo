@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/css/all.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
 
-    <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">The title of your website</title>
+    <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE" th:text="#{site.name}"></title>
 </head>
 <body>
     <th:block th:replace="fragments/header :: header"/>
