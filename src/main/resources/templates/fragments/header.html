@@ -24,6 +24,12 @@
                             <span th:text="#{menu.home}"></span>
                         </a>
                     </li>
+                    <li sec:authorize="isAuthenticated()">
+                        <a th:href="@{/articles}">
+                            <span class="fa fa-newspaper"></span>
+                            <span th:text="#{menu.articles}"></span>
+                        </a>
+                    </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li sec:authorize="isAnonymous()">

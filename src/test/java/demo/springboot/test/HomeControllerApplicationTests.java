@@ -46,7 +46,7 @@ public class HomeControllerApplicationTests {
 
     @Test
     public void loginUser() throws Exception {
-        this.mockMvc.perform(formLogin().user("user").password("user"))
+        this.mockMvc.perform(formLogin().user("bill").password("bill"))
                 .andExpect(authenticated());
     }
 
@@ -59,7 +59,7 @@ public class HomeControllerApplicationTests {
 
     @Test
     public void loginUserAccessProtected() throws Exception {
-        MvcResult mvcResult = this.mockMvc.perform(formLogin().user("user").password("user"))
+        MvcResult mvcResult = this.mockMvc.perform(formLogin().user("john").password("john"))
                 .andExpect(authenticated()).andReturn();
 
         MockHttpSession httpSession = (MockHttpSession) mvcResult.getRequest().getSession(false);
@@ -70,18 +70,18 @@ public class HomeControllerApplicationTests {
 
     @Test
     public void loginUserAccessProtectedInvalid() throws Exception {
-        MvcResult mvcResult = this.mockMvc.perform(formLogin().user("admin").password("admin"))
+        MvcResult mvcResult = this.mockMvc.perform(formLogin().user("john").password("john"))
                 .andExpect(authenticated()).andReturn();
 
         MockHttpSession httpSession = (MockHttpSession) mvcResult.getRequest().getSession(false);
 
-        this.mockMvc.perform(get("/user").session(httpSession))
+        this.mockMvc.perform(get("/admin").session(httpSession))
                 .andExpect(redirectedUrl("/access-denied"));
     }
 
     @Test
     public void loginUserValidateLogout() throws Exception {
-        MvcResult mvcResult = this.mockMvc.perform(formLogin().user("user").password("user"))
+        MvcResult mvcResult = this.mockMvc.perform(formLogin().user("bill").password("bill"))
                 .andExpect(authenticated()).andReturn();
 
         MockHttpSession httpSession = (MockHttpSession) mvcResult.getRequest().getSession(false);

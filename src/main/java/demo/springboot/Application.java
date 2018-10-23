@@ -1,7 +1,9 @@
 package demo.springboot;
 
+import demo.springboot.model.Article;
 import demo.springboot.model.Role;
 import demo.springboot.model.User;
+import demo.springboot.repository.ArticleRepository;
 import demo.springboot.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -26,7 +28,7 @@ public class Application implements WebMvcConfigurer {
     }
 
     @Bean
-    public CommandLineRunner fillUserData(UserRepository userRepository) {
+    public CommandLineRunner fillUserData(UserRepository userRepository, ArticleRepository articleRepository) {
         return args -> {
             Role roleReader = new Role("READER");
             Role roleEditor = new Role("EDITOR");
@@ -40,12 +42,20 @@ public class Application implements WebMvcConfigurer {
             user3Roles.add(roleAdmin);
 
             BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-            User userReader = new User("reader", passwordEncoder.encode("reader"), user1Roles);
-            User userEditor = new User("editor", passwordEncoder.encode("editor"), user2Roles);
-            User userAdmin = new User("admin", passwordEncoder.encode("admin"), user3Roles);
-            userRepository.save(userReader);
-            userRepository.save(userEditor);
-            userRepository.save(userAdmin);
+            User john = new User("john", passwordEncoder.encode("john"), user1Roles);
+            User mike = new User("mike", passwordEncoder.encode("mike"), user2Roles);
+            User bill = new User("bill", passwordEncoder.encode("bill"), user3Roles);
+            userRepository.save(john);
+            userRepository.save(mike);
+            userRepository.save(bill);
+
+            Article article1 = new Article(john, "Good movies", "Here some elaborate article about the subject.");
+            Article article2 = new Article(john, "Even better movies", "Here some elaborate article about the subject.");
+            Article article3 = new Article(bill, "Great musical performances", "Here some elaborate article about the subject.");
+
+            articleRepository.save(article1);
+            articleRepository.save(article2);
+            articleRepository.save(article3);
         };
     }
 

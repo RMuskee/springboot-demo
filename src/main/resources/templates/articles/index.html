@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>Articles</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <h1 th:text="#{articles.page.title}"></h1>
+    <table class="table table-striped">
+        <tr>
+            <th>username</th>
+            <th>title</th>
+        </tr>
+        <tr th:each = "article : ${articles}">
+            <td><span th:text="${article.user.username}"></span></td>
+            <td><span th:text="${article.title}"></span></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
