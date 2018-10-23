@@ -12,7 +12,7 @@ JDK 8
 - springboot v2.0.5 
   - internationalization (messages are locale-specific)
 - an in-memory-DB (H2) which can be used during development/testing
-- springboot security with 2 example-users
+- springboot security with 3 example-users
 - thymeleaf with 
   - the thymeleaf-security extension with some examples
   - the thymleaf-layout-dialect in order to reuse components
