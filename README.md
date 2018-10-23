@@ -10,6 +10,7 @@ JDK 8
 # summary of used technologies
 
 - springboot v2.0.5 
+  - internationalization (messages are locale-specific)
 - an in-memory-DB (H2) which can be used during development/testing
 - springboot security with 2 example-users
 - thymeleaf with 
@@ -19,3 +20,4 @@ JDK 8
   - bootstrap 4 (pages include: responsive navbar, fixed footer)
   - font awesome 5 (with some examples within the pages)
   - jquery
+ 
