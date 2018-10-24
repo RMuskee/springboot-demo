@@ -5,3 +5,15 @@ footer {
     background-color: #ccc;
     width: 100%
 }
+
+.table-hover>tbody>tr:hover>td {
+    background-color: purple;
+    color: white;
+    cursor: pointer
+}
+
+.table-hover>tbody>tr:hover>th {
+    background-color: black;
+    color: white;
+    cursor: pointer
+}

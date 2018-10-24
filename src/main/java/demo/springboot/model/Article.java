@@ -37,6 +37,11 @@ public class Article {
         return id;
     }
 
+    public Article setId(Long id) {
+        this.id = id;
+        return this;
+    }
+
     public User getUser() {
         return user;
     }

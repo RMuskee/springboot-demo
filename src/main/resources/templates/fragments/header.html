@@ -50,7 +50,7 @@
                                     <span th:text="#{menu.user}"></span>
                                 </a>
                             </li>
-                            <li sec:authorize="hasAuthority('ADMIN')">
+                            <li sec:authorize="hasRole('ADMIN')">
                                 <a th:href="@{/admin}">
                                     <span class="fa fa-cog"></span>
                                     <span th:text="#{menu.admin}"></span>

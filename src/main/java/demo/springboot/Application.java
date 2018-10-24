@@ -30,15 +30,15 @@ public class Application implements WebMvcConfigurer {
     @Bean
     public CommandLineRunner fillUserData(UserRepository userRepository, ArticleRepository articleRepository) {
         return args -> {
-            Role roleReader = new Role("READER");
-            Role roleEditor = new Role("EDITOR");
-            Role roleAdmin = new Role("ADMIN");
-
+            Role roleReader = new Role("ROLE_READER");
+            Role roleEditor = new Role("ROLE_EDITOR");
+            Role roleAdmin = new Role("ROLE_ADMIN");
             Set<Role> user1Roles = new HashSet<>();
             user1Roles.add(roleReader);
             Set<Role> user2Roles = new HashSet<>();
             user2Roles.add(roleEditor);
             Set<Role> user3Roles = new HashSet<>();
+            // TODO fix this: user3Roles.add(roleEditor);
             user3Roles.add(roleAdmin);
 
             BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -52,7 +52,6 @@ public class Application implements WebMvcConfigurer {
             Article article1 = new Article(john, "Good movies", "Here some elaborate article about the subject.");
             Article article2 = new Article(john, "Even better movies", "Here some elaborate article about the subject.");
             Article article3 = new Article(bill, "Great musical performances", "Here some elaborate article about the subject.");
-
             articleRepository.save(article1);
             articleRepository.save(article2);
             articleRepository.save(article3);

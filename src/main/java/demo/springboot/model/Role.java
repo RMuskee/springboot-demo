@@ -3,7 +3,7 @@ package demo.springboot.model;
 import javax.persistence.*;
 
 @Entity
-public class Role {
+public class  Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,5 +26,15 @@ public class Role {
 
     public String getRole() {
         return role;
+    }
+
+    public Role setId(Long id) {
+        this.id = id;
+        return this;
+    }
+
+    public Role setRole(String role) {
+        this.role = role;
+        return this;
     }
 }

@@ -1,7 +1,7 @@
 package demo.springboot.config;
 
 import demo.springboot.service.UserDetailServiceImpl;
-import demo.springboot.web.LoggingAccessDeniedHandler;
+import demo.springboot.controller.LoggingAccessDeniedHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -36,7 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(
                         "/user/**",
                         "/articles/**").authenticated()
-                .antMatchers("/admin/**").hasAuthority("ADMIN")
+                .antMatchers("/admin/**").hasRole("ADMIN")
                 .and()
             .authorizeRequests()
                 .anyRequest().authenticated()
