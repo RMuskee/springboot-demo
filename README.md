@@ -4,6 +4,11 @@ A demo application (with an in-memory-database) with:
 - a product page where you can add/update/delete depending on your role
 - restricted pages
 
+# How to run the application
+- run maven-command "package" (either from your IDE or from the commandline)
+- go to the target directory and run "java -jar springboot-demo-1.0.0-SNAPSHOT.jar"
+- that's it!
+
 # Prerequisites
 JDK 8
 
