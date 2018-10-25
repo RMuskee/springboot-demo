@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>Products</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <div class="container">
+        <div th:if="${not #lists.isEmpty(products)}">
+            <h2>Product List</h2>
+            <table class="table table-striped table-hover">
+                <tr>
+                    <th>Id</th>
+                    <th>ProductName</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>View</th>
+                    <th sec:authorize="hasRole('EDITOR')">Edit</th>
+                    <th sec:authorize="hasRole('ADMIN')">Delete</th>
+                </tr>
+                <tr th:each="product : ${products}">
+                    <td th:text="${product.id}"><a href="/product/${product.id}">Id</a></td>
+                    <td th:text="${product.productName}">ProductName</td>
+                    <td th:text="${product.description}">descirption</td>
+                    <td th:text="${product.price}">price</td>
+                    <td><a th:href="${ '/product/' + product.id}">View</a></td>
+                    <td sec:authorize="hasRole('EDITOR')">
+                        <a th:href="${'/product/edit/' + product.id}">Edit</a>
+                    </td>
+                    <td sec:authorize="hasRole('ADMIN')">
+                        <a th:href="${'/product/delete/' + product.id}">Delete</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

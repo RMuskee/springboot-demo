@@ -32,11 +32,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/js/**",
                         "/css/**",
                         "/img/**",
-                        "/webjars/**").permitAll()
+                        "/webjars/**",
+                        "/products/**")
+                        .permitAll()
                 .antMatchers(
-                        "/user/**",
-                        "/articles/**").authenticated()
-                .antMatchers("/admin/**").hasRole("ADMIN")
+                        "/products/productform.html")
+                        .hasAnyRole("EDITOR","ADMIN")
+                .antMatchers(
+                        "/user/**"
+                        ).authenticated()
+                .antMatchers(
+                        "/admin/**")
+                        .hasRole("ADMIN")
                 .and()
             .authorizeRequests()
                 .anyRequest().authenticated()

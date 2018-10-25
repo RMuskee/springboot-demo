@@ -1,9 +1,9 @@
 package demo.springboot;
 
-import demo.springboot.model.Article;
+import demo.springboot.model.Product;
 import demo.springboot.model.Role;
 import demo.springboot.model.User;
-import demo.springboot.repository.ArticleRepository;
+import demo.springboot.repository.ProductRepository;
 import demo.springboot.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -28,9 +28,9 @@ public class Application implements WebMvcConfigurer {
     }
 
     @Bean
-    public CommandLineRunner fillUserData(UserRepository userRepository, ArticleRepository articleRepository) {
+    public CommandLineRunner fillUserData(UserRepository userRepository, ProductRepository productRepository) {
         return args -> {
-            Role roleReader = new Role("ROLE_READER");
+            Role roleReader = new Role("ROLE_USER");
             Role roleEditor = new Role("ROLE_EDITOR");
             Role roleAdmin = new Role("ROLE_ADMIN");
             Set<Role> user1Roles = new HashSet<>();
@@ -38,7 +38,7 @@ public class Application implements WebMvcConfigurer {
             Set<Role> user2Roles = new HashSet<>();
             user2Roles.add(roleEditor);
             Set<Role> user3Roles = new HashSet<>();
-            // TODO fix this: user3Roles.add(roleEditor);
+            // TODO fix me user3Roles.add(roleEditor);
             user3Roles.add(roleAdmin);
 
             BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -49,12 +49,14 @@ public class Application implements WebMvcConfigurer {
             userRepository.save(mike);
             userRepository.save(bill);
 
-            Article article1 = new Article(john, "Good movies", "Here some elaborate article about the subject.");
-            Article article2 = new Article(john, "Even better movies", "Here some elaborate article about the subject.");
-            Article article3 = new Article(bill, "Great musical performances", "Here some elaborate article about the subject.");
-            articleRepository.save(article1);
-            articleRepository.save(article2);
-            articleRepository.save(article3);
+            Product product = new Product();
+            product.setDescription("Duct tape");
+
+            Product product2 = new Product();
+            product2.setDescription("Race car");
+
+            productRepository.save(product);
+            productRepository.save(product2);
         };
     }
 
