@@ -23,7 +23,7 @@ public class ProductController {
         return "/products/products";
     }
 
-    @GetMapping("product/{id}")
+    @GetMapping("product/view/{id}")
     public String showProduct(@PathVariable Integer id, Model model){
         model.addAttribute("product", productService.findProductById(id));
         return "/products/productshow";
@@ -50,6 +50,6 @@ public class ProductController {
     @PostMapping(value = "product")
     public String saveProduct(Product product){
         productService.saveProduct(product);
-        return "redirect:product/" + product.getId();
+        return "redirect:product/view/" + product.getId();
     }
 }

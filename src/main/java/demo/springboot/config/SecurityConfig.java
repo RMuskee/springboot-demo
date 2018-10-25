@@ -33,15 +33,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/css/**",
                         "/img/**",
                         "/webjars/**",
-                        "/products/**")
+                        "/products/**",
+                        "/product/view/**")
                         .permitAll()
                 .antMatchers(
-                        "/products/productform.html")
-                        .hasAnyRole("EDITOR","ADMIN")
+                        "/product/new/**",
+                        "/product/edit/**")
+                        .hasAnyRole("EDITOR")
                 .antMatchers(
                         "/user/**"
                         ).authenticated()
                 .antMatchers(
+                        "/product/delete/**",
                         "/admin/**")
                         .hasRole("ADMIN")
                 .and()

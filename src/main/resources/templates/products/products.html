@@ -10,31 +10,39 @@
 <div layout:fragment="content" th:remove="tag">
     <div class="container">
         <div th:if="${not #lists.isEmpty(products)}">
-            <h2>Product List</h2>
+            <h2 th:text="#{products.page.title}"></h2>
             <table class="table table-striped table-hover">
                 <tr>
                     <th>Id</th>
-                    <th>ProductName</th>
-                    <th>Description</th>
-                    <th>Price</th>
-                    <th>View</th>
-                    <th sec:authorize="hasRole('EDITOR')">Edit</th>
-                    <th sec:authorize="hasRole('ADMIN')">Delete</th>
+                    <th th:text="#{productname}"></th>
+                    <th th:text="#{description}"></th>
+                    <th  th:text="#{price}"></th>
+                    <th></th>
                 </tr>
                 <tr th:each="product : ${products}">
-                    <td th:text="${product.id}"><a href="/product/${product.id}">Id</a></td>
-                    <td th:text="${product.productName}">ProductName</td>
-                    <td th:text="${product.description}">descirption</td>
-                    <td th:text="${product.price}">price</td>
-                    <td><a th:href="${ '/product/' + product.id}">View</a></td>
-                    <td sec:authorize="hasRole('EDITOR')">
-                        <a th:href="${'/product/edit/' + product.id}">Edit</a>
-                    </td>
-                    <td sec:authorize="hasRole('ADMIN')">
-                        <a th:href="${'/product/delete/' + product.id}">Delete</a>
+                    <td th:text="${product.id}"><a href="/product/${product.id}"></a></td>
+                    <td th:text="${product.productName}"></td>
+                    <td th:text="${product.description}"></td>
+                    <td th:text="${product.price}"></td>
+                    <td class="min">
+                        <a class="btn btn-primary" th:href="${ '/product/view/' + product.id}" role="button">
+                            <i class="fa fa-search fa-sm"></i>
+                        </a>
+                        <a sec:authorize="hasRole('EDITOR')" class="btn btn-primary" th:href="${'/product/edit/' + product.id}" role="button">
+                            <i class="fa fa-edit fa-sm"></i>
+                        </a>
+                        <a sec:authorize="hasRole('ADMIN')"class="btn btn-danger" th:href="${'/product/delete/' + product.id}" role="button">
+                            <i class="fa fa-trash fa-sm"></i>
+                        </a>
                     </td>
                 </tr>
             </table>
+            <div class="row">
+                <a sec:authorize="hasRole('EDITOR')" th:href="@{/product/new}" class="btn btn-primary" role="button">
+                    <i class="fa fa-plus fa-pull-left"></i>
+                    <span th:text="#{product.add.btn}"></span>
+                </a>
+            </div>
         </div>
     </div>
 </div>

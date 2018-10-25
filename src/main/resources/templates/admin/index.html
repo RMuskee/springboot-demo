@@ -8,9 +8,12 @@
 <body>
 <div layout:fragment="content" th:remove="tag">
     <h1 th:text="#{admin.page.title}"></h1>
-    <a th:href="@{/admin/h2-console}" target="_blank" class="btn btn-info" role="button">
-        <i class="fa fa-database fa-pull-left"></i><span th:text="#{admin.page.button.h2}"></span>
-    </a>
+    <div class="row">
+        <a th:href="@{/admin/h2-console}" target="_blank" class="btn btn-primary" role="button">
+            <i class="fa fa-database fa-pull-left"></i>
+            <span th:text="#{admin.page.button.h2}"></span>
+        </a>
+    </div>
 </div>
 </body>
 </html>

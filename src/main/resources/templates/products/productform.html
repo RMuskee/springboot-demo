@@ -9,37 +9,40 @@
 <body>
 <div layout:fragment="content" th:remove="tag">
     <div class="container">
-        <h2>Product Details</h2>
+        <h2 th:text="#{product.form.page.title}"></h2>
         <div>
             <form class="form-horizontal" th:object="${product}" th:action="@{/product}" method="post">
                 <input type="hidden" th:field="*{id}"/>
                 <input type="hidden" th:field="*{version}"/>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">ProductName:</label>
+                    <label class="col-sm-2 control-label" th:text="#{productname}"></label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" th:field="*{productName}"/>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Description:</label>
+                    <label class="col-sm-2 control-label" th:text="#{description}"></label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" th:field="*{description}"/>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Price:</label>
+                    <label class="col-sm-2 control-label" th:text="#{price}"></label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" th:field="*{price}"/>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Image Url:</label>
+                    <label class="col-sm-2 control-label" th:text="#{imageurl}"></label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" th:field="*{imageUrl}"/>
                     </div>
                 </div>
                 <div class="row">
-                    <button type="submit" class="btn btn-default">Submit</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa fa-save"></i>
+                        <span th:text="#{submit_save}"></span>
+                    </button>
                 </div>
             </form>
         </div>

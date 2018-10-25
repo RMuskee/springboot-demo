@@ -17,3 +17,8 @@ footer {
     color: white;
     cursor: pointer
 }
+
+td.min {
+    width: 1%;
+    white-space: nowrap;
+}
