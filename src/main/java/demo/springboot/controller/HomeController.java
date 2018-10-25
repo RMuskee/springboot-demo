@@ -18,16 +18,16 @@ public class HomeController {
 
     @GetMapping("/user")
     public String userIndex() {
-        return "/user/index";
+        return "user/index";
     }
 
     @GetMapping("/admin")
     public String adminIndex() {
-        return "/admin/index";
+        return "admin/index";
     }
 
     @GetMapping("/access-denied")
     public String accessDenied() {
-        return "/error/access-denied";
+        return "error/access-denied";
     }
 }

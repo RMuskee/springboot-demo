@@ -20,31 +20,31 @@ public class ProductController {
     @GetMapping(value = "/products")
     public String list(Model model){
         model.addAttribute("products", productService.listAllProducts());
-        return "/products/products";
+        return "products/products";
     }
 
     @GetMapping("product/view/{id}")
     public String showProduct(@PathVariable Integer id, Model model){
         model.addAttribute("product", productService.findProductById(id));
-        return "/products/productshow";
+        return "products/productshow";
     }
 
     @GetMapping("product/delete/{id}")
     public String deleteProduct(@PathVariable Integer id, Model model){
         productService.deleteById(id);
-        return "redirect:/products";
+        return "redirect:products";
     }
 
     @GetMapping("product/edit/{id}")
     public String editProduct(@PathVariable Integer id, Model model){
         model.addAttribute("product", productService.findProductById(id));
-        return "/products/productform";
+        return "products/productform";
     }
 
     @GetMapping("product/new")
     public String newProduct(Model model){
         model.addAttribute("product", new Product());
-        return "/products/productform";
+        return "products/productform";
     }
 
     @PostMapping(value = "product")
