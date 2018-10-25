@@ -1,8 +1,8 @@
 # About this application
-
-While searching for a good starting point to create my first springboot application, I noticed I liked and disliked parts of multiple demo-projects.
-
-I merged logic from multiple demos into 1 demo which (for me) made into a good reference project.
+A demo application with:
+- a CRUD product implementation
+- users with different roles
+- restricted pages
 
 # Prerequisites
 JDK 8
