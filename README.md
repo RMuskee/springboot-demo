@@ -1,7 +1,7 @@
 # About this application
-A demo application with:
-- a CRUD product implementation
+A demo application (with an in-memory-database) with:
 - users with different roles
+- a product page where you can add/update/delete depending on your role
 - restricted pages
 
 # Prerequisites
