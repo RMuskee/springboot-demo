@@ -50,10 +50,12 @@ public class Application implements WebMvcConfigurer {
             userRepository.save(bill);
 
             Product product = new Product();
-            product.setDescription("Duct tape");
+            product.setProductName("Duct tape");
+            product.setDescription("Cool stuff!");
 
             Product product2 = new Product();
-            product2.setDescription("Race car");
+            product2.setProductName("Race car");
+            product2.setDescription("Even cooler stuff!");
 
             productRepository.save(product);
             productRepository.save(product2);

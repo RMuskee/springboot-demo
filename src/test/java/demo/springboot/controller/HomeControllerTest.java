@@ -1,8 +1,7 @@
-package demo.springboot.test;
+package demo.springboot.controller;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -24,7 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 @RunWith(SpringJUnit4ClassRunner.class)
-public class HomeControllerApplicationTests {
+public class HomeControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -93,5 +92,4 @@ public class HomeControllerApplicationTests {
                 .andExpect(unauthenticated())
                 .andExpect(status().is3xxRedirection());
     }
-
 }

@@ -1,6 +1,8 @@
 package demo.springboot.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 
 @Entity
@@ -12,6 +14,8 @@ public class Product {
     @Version
     private Integer version;
 
+    @NotNull(message = "{textfield.required}")
+    @Size(max=50)
     private String productName;
     private String description;
     private String imageUrl;
