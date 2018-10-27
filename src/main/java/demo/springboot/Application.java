@@ -4,6 +4,7 @@ import demo.springboot.model.Product;
 import demo.springboot.model.Role;
 import demo.springboot.model.User;
 import demo.springboot.repository.ProductRepository;
+import demo.springboot.repository.RoleRepository;
 import demo.springboot.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -17,9 +18,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
-import java.util.HashSet;
-import java.util.Locale;
-import java.util.Set;
+import java.util.*;
 
 @SpringBootApplication
 public class Application implements WebMvcConfigurer {
@@ -28,17 +27,24 @@ public class Application implements WebMvcConfigurer {
     }
 
     @Bean
-    public CommandLineRunner fillUserData(UserRepository userRepository, ProductRepository productRepository) {
+    public CommandLineRunner fillUserData(
+            RoleRepository roleRepository,
+            UserRepository userRepository,
+            ProductRepository productRepository) {
         return args -> {
             Role roleReader = new Role("ROLE_USER");
             Role roleEditor = new Role("ROLE_EDITOR");
             Role roleAdmin = new Role("ROLE_ADMIN");
-            Set<Role> user1Roles = new HashSet<>();
+            roleRepository.save(roleReader);
+            roleRepository.save(roleEditor);
+            roleRepository.save(roleAdmin);
+
+            List<Role> user1Roles = new ArrayList<>();
             user1Roles.add(roleReader);
-            Set<Role> user2Roles = new HashSet<>();
+            List<Role> user2Roles = new ArrayList<>();
             user2Roles.add(roleEditor);
-            Set<Role> user3Roles = new HashSet<>();
-            // TODO fix me user3Roles.add(roleEditor);
+            List<Role> user3Roles = new ArrayList<>();
+            user3Roles.add(roleEditor);
             user3Roles.add(roleAdmin);
 
             BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();

@@ -1,6 +1,5 @@
 server:
   port: 8080
-
 spring:
   messages:
     basename: messages
@@ -11,6 +10,7 @@ spring:
   jpa:
     generate-ddl: true
     show-sql: false
+    open-in-view: false
   h2:
     console:
       enabled: true

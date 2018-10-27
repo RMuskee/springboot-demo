@@ -1,6 +1,8 @@
 package demo.springboot.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -17,14 +19,18 @@ public class User {
     @Column(name = "password", nullable = false)
     private String passwordHash;
 
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    // ~ defaults to @JoinTable(name = "USER_ROLE", joinColumns = @JoinColumn(name = "user_id"),
-    //     inverseJoinColumns = @joinColumn(name = "role_id"))
-	private Set<Role> roles;
+	@ManyToMany(fetch = FetchType.EAGER, cascade = {
+			CascadeType.MERGE
+	})
+	@JoinTable(name = "USER_ROLE",
+			joinColumns = @JoinColumn(name = "user_id"),
+			inverseJoinColumns = @JoinColumn(name = "role_id")
+	)
+	private List<Role> roles = new ArrayList<>();
 
     public User() {}
 
-	public User(String username, String passwordHash, Set<Role> roles) {
+	public User(String username, String passwordHash, List<Role> roles) {
 		super();
 		this.username = username;
 		this.passwordHash = passwordHash;
@@ -55,12 +61,11 @@ public class User {
 		this.passwordHash = passwordHash;
 	}
 
-	public Set<Role> getRoles() {
+	public List<Role> getRoles() {
 		return roles;
 	}
 
-	public User setRoles(Set<Role> roles) {
+	public void addRole(Role role) {
 		this.roles = roles;
-		return this;
 	}
 }

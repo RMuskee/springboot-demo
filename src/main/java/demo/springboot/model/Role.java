@@ -1,7 +1,9 @@
 package demo.springboot.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -15,11 +17,8 @@ public class  Role {
     @Column(name = "role", nullable = false, unique = true)
     private String role;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable
-    // ~ defaults to @JoinTable(name = "USER_ROLE", joinColumns = @JoinColumn(name = "role_id"),
-    //     inverseJoinColumns = @joinColumn(name = "user_id"))
-    private Set<User> users = new HashSet<>();
+    @ManyToMany(mappedBy = "roles")
+    private List<User> users = new ArrayList<>();
 
     public Role() {
     }
