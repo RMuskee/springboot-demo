@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>General error</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <h1 th:text="#{general.error.page.title}"></h1>
+    <p><a href="/" th:href="@{/}" th:text="#{link.return.home}"></a></p>
+</div>
+</body>
+</html>

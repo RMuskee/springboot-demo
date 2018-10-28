@@ -27,7 +27,7 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @GetMapping(value = "products")
+    @GetMapping("products")
     public String list(Model model){
         model.addAttribute("products", productService.listAllProducts());
         return "products/products";
@@ -42,7 +42,7 @@ public class ProductController {
     @GetMapping("product/delete/{id}")
     public String deleteProduct(@PathVariable Integer id, Model model){
         productService.deleteById(id);
-        return "redirect:products";
+        return "redirect:/products";
     }
 
     @GetMapping("product/edit/{id}")
