@@ -14,8 +14,8 @@
             <form id="productForm" class="form-horizontal" th:object="${product}" th:action="@{/product}" method="post">
                 <input type="hidden" th:field="*{id}"/>
                 <input type="hidden" th:field="*{version}"/>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label"
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label font-weight-bold"
                            th:text="#{productname}"
                            for="inputProductName">
                     </label>
@@ -30,8 +30,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label"
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label font-weight-bold"
                            th:text="#{description}"
                            for="inputDescription">
                     </label>
@@ -42,8 +42,8 @@
                                th:field="*{description}"/>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label"
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label font-weight-bold"
                            th:text="#{price}"
                            for="inputPrice">
                     </label>
@@ -54,8 +54,8 @@
                            th:field="*{price}"/>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label"
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label font-weight-bold"
                            th:text="#{imageurl}"
                            for="inputImageUrl">
                     </label>

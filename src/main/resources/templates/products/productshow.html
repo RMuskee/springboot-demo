@@ -12,28 +12,28 @@
         <h2 th:text="#{product.view.page.title}"></h2>
         <div>
             <form class="form-horizontal">
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" th:text="#{productname}"></label>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label font-weight-bold" th:text="#{productname}"></label>
                     <div class="col-sm-10">
-                        <p class="form-control-static" th:text="${product.productName}"></p>
+                        <input type="text" readonly class="form-control-plaintext" th:value="${product.productName}">
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" th:text="#{description}"></label>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label font-weight-bold" th:text="#{description}"></label>
                     <div class="col-sm-10">
-                        <p class="form-control-static" th:text="${product.description}"></p>
+                        <input type="text" readonly class="form-control-plaintext" th:value="${product.description}">
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" th:text="#{price}"></label>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label font-weight-bold" th:text="#{price}"></label>
                     <div class="col-sm-10">
-                        <p class="form-control-static" th:text="${product.price}"></p>
+                        <input type="text" readonly class="form-control-plaintext" th:value="${product.price}">
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" th:text="#{imageurl}"></label>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label font-weight-bold" th:text="#{imageurl}"></label>
                     <div class="col-sm-10">
-                        <p class="form-control-static" th:text="${product.imageUrl}"></p>
+                        <input type="text" readonly class="form-control-plaintext" th:value="${product.imageUrl}">
                     </div>
                 </div>
             </form>
