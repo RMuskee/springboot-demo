@@ -6,6 +6,10 @@ footer {
     width: 100%
 }
 
+.navbar-icon-top {
+    margin-bottom: 10px
+}
+
 .table-hover>tbody>tr:hover>td {
     background-color: orange;
     color: white;

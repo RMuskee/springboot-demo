@@ -11,7 +11,7 @@
     <div class="container">
         <h2 th:text="#{product.form.page.title}"></h2>
         <div>
-            <form id="productForm" class="form-horizontal" th:object="${product}" th:action="@{/product}" method="post">
+            <form id="productForm" th:object="${product}" th:action="@{/product}" method="post">
                 <input type="hidden" th:field="*{id}"/>
                 <input type="hidden" th:field="*{version}"/>
                 <div class="form-group row">
