@@ -50,6 +50,18 @@ td.min {
     top: -10px;
 }
 
+.navbar-icon-top.navbar-expand-lg .navbar-nav ul .nav-link {
+    height: auto;
+}
+
+.navbar-icon-top.navbar-expand-lg .navbar-nav ul .nav-link > .fa {
+    display: inline-block;
+    width: 48px;
+    margin: 2px auto 4px auto;
+    top: 0;
+    line-height: 24px;
+}
+
 @media (min-width: 576px) {
     .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link {
         text-align: center;
